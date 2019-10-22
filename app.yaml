@@ -1,0 +1,5 @@
+runtime: python37
+
+env_variables:
+  GOOGLE_CLOUD_PROJECT: dfr-beam
+
