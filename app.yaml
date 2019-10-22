@@ -3,3 +3,4 @@ runtime: python37
 env_variables:
   GOOGLE_CLOUD_PROJECT: dfr-beam
 
+entrypoint: gunicorn -b :$PORT -k flask_sockets.worker main:app
