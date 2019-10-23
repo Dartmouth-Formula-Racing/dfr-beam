@@ -10,8 +10,8 @@ app = Flask(__name__)
 sockets = Sockets(app)
 
 
-@sockets.route('/echo')
-def echo_socket(ws):
+@sockets.route('/')
+def root_socket(ws):
     while not ws.closed:
         # receive message
         message = ws.receive()
@@ -22,4 +22,3 @@ def echo_socket(ws):
         clients = ws.handler.server.clients.values()
         for client in clients:
             client.ws.send(message)
-
