@@ -17,6 +17,9 @@ def echo_socket(ws):
         message = ws.receive()
         if message is None:
             continue
-        
-        # log message
-        logging.debug(message)
+
+        # bounce message to all connected clients
+        clients = ws.handler.server.clients.values()
+        for client in clients:
+            client.ws.send(message)
+
